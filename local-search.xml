@@ -4,17 +4,17 @@
   
   
   <entry>
-    <title>机器人学习资料简介</title>
-    <link href="/2020/03/18/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E7%AE%80%E4%BB%8B/"/>
-    <url>/2020/03/18/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E7%AE%80%E4%BB%8B/</url>
+    <title>{{ post.title }}</title>
+    <link href="{{ (url + post.path) | uriencode }}"/>
+    <url>{{ (url + post.path) | uriencode }}</url>
     
-    <content type="html"><![CDATA[<h1 id="机器人方向资料简介"><a href="#机器人方向资料简介" class="headerlink" title="机器人方向资料简介"></a>机器人方向资料简介</h1><p><strong>机器人学</strong></p><p><strong><em>推荐教材：</em></strong></p><p>（必修，实践）机器人学、机器视觉与控制――MATLAB算法基础 [Robotics, Vision and Control: Fundamental Algorith]，[澳] Peter Corke（彼得 科克） 著，刘荣 译 ，电子工业出版社</p><p>（参考，理论）机器人学：建模、控制与视觉 ，熊有伦 等 著，华中科技大学出版社</p><p><strong><em>推荐教程：</em></strong></p><blockquote><p><a href="https://www.bilibili.com/video/av30616356/?spm_id_from=333.788.videocard.0" target="_blank" rel="noopener">(必修)东南大学 机器人原理及应用(共48讲)(Bilibili)</a> </p></blockquote><blockquote><p>东南大学 机器人原理及应用 百度云<br>链接: <a href="https://pan.baidu.com/s/1MJON50a2xFjsqOX-8PtRpw" target="_blank" rel="noopener">https://pan.baidu.com/s/1MJON50a2xFjsqOX-8PtRpw</a> 提取码: 9txi</p></blockquote><p><a href="http://peichunlin.me.ntu.edu.tw/index.htm" target="_blank" rel="noopener">林沛群老师个人主页</a></p><blockquote><p><a href="https://www.coursera.org/learn/robotics1/home/welcome" target="_blank" rel="noopener">(推荐)国立台湾大学机器人学1—运动学(coursra)</a>(卡顿请尝试在无痕窗口中打开视频页面)</p></blockquote><blockquote><p><a href="https://www.bilibili.com/video/av54047883?from=search&seid=16030258824692065611" target="_blank" rel="noopener">国立台湾大学机器人学1—运动学(Bilibili)</a></p><p>参考课件书籍：</p><p>链接：<a href="https://pan.baidu.com/s/1E8rNy1MbR-V1I-yp4lJv-w" target="_blank" rel="noopener">https://pan.baidu.com/s/1E8rNy1MbR-V1I-yp4lJv-w</a> 提取码：ebjl</p></blockquote><blockquote><p><a href="https://www.bilibili.com/video/av59243185/?spm_id_from=333.788.videocard.1" target="_blank" rel="noopener">国立台湾大学机器人学—动力学(Bilibili)</a></p></blockquote><hr><p><strong>Matlab</strong></p><p><strong><em>推荐教程：</em></strong></p><blockquote><p><a href="https://space.bilibili.com/24014925/channel/detail?cid=12575&tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">Matlab入门教程</a></p></blockquote><blockquote><p>(参考)<a href="https://www.bilibili.com/video/av68228488?from=search&seid=9131365510044676757" target="_blank" rel="noopener">Matlab教程系列-国立台湾大学</a></p></blockquote><hr>]]></content>
+    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
     
     
     
     <tags>
       
-      <tag>机器人</tag>
+      <tag>{{ tag.name }}</tag>
       
     </tags>
     
@@ -23,17 +23,17 @@
   
   
   <entry>
-    <title>Ubuntu下载源</title>
-    <link href="/2020/03/14/Ubuntu%E4%B8%8B%E8%BD%BD%E6%BA%90/"/>
-    <url>/2020/03/14/Ubuntu%E4%B8%8B%E8%BD%BD%E6%BA%90/</url>
+    <title>{{ post.title }}</title>
+    <link href="{{ (url + post.path) | uriencode }}"/>
+    <url>{{ (url + post.path) | uriencode }}</url>
     
-    <content type="html"><![CDATA[<h1 id="Ubuntu镜像下载源"><a href="#Ubuntu镜像下载源" class="headerlink" title="Ubuntu镜像下载源"></a>Ubuntu镜像下载源</h1><p>官方源（不推荐）</p><p><a href="https://www.ubuntu.com/download/" target="_blank" rel="noopener">https://www.ubuntu.com/download/</a></p><p>中科大源</p><p><a href="http://mirrors.ustc.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/ubuntu-releases/</a></p><p>阿里云</p><p><a href="http://mirrors.aliyun.com/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu-releases/</a></p><p>北理工源</p><p><a href="http://mirror.bit.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/ubuntu-releases/</a></p><p>兰大源 （暂时测试无法使用）</p><p><a href="http://mirror.lzu.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/ubuntu-releases/</a></p><p>浙大源</p><p><a href="http://mirrors.zju.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/ubuntu-releases/</a></p>]]></content>
+    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
     
     
     
     <tags>
       
-      <tag>Ubuntu</tag>
+      <tag>{{ tag.name }}</tag>
       
     </tags>
     
@@ -42,17 +42,36 @@
   
   
   <entry>
-    <title>机械设计软件分享（第一期）</title>
-    <link href="/2020/03/11/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%89/"/>
-    <url>/2020/03/11/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%89/</url>
+    <title>{{ post.title }}</title>
+    <link href="{{ (url + post.path) | uriencode }}"/>
+    <url>{{ (url + post.path) | uriencode }}</url>
     
-    <content type="html"><![CDATA[<p><strong>AUTOCAD</strong></p><p>当下最流行的二维绘图软件，出图的不二之选。加工各类非标零件时绘制零件图、装配图。(建议统一版本)</p><p><img src="https://s2.ax1x.com/2020/03/11/8AleRf.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong>SOLIDWORKS 2018</strong></p><p>SOLIDWORKS作为一款参数化建模软件相比其他三维建模软件（Creo,<del>Fusion360</del>没用过,Inventor,catia）来说，其设计思路以及操作逻辑更符合机器人结构设计，与其他程序接口广泛使用方便且易学易上手。（社团后续会同一版本至2018白金版）</p><p><img src="/img/jixie1.png" srcset="/img/loading.gif" alt=""></p><hr><p>以下软件的使用建立在<strong>SOLIDWORKS 2018</strong>基础上</p><p><strong><a href="https://www.misumi.com.cn/pr/fa/b9c60p3c/aa/?bid=bid_catalog_top#applynow" target="_blank" rel="noopener">MISUMI零件库</a></strong></p><p>相较其他零件库，更推荐米思米零件库</p><ol><li><p>无需付费</p></li><li><p>MISUMI收录零件种类繁多</p></li><li><p>支持一键导入装配体</p></li><li><p>模型支持本地保存，自动生成BOM表</p><p><img src="/img/misumi.png" srcset="/img/loading.gif" alt=""></p></li></ol><p><strong>GearTrax</strong></p><p>一款齿轮生成软件。齿轮一键生成，避免了绘制齿轮时的繁琐步骤。推荐与SOLIDWORKS TOOLBOX搭配使用。</p><p><img src="/img/gear.png" srcset="/img/loading.gif" alt=""></p><p><strong>沐风工具箱</strong></p><p>国内机械图纸分享网站沐风网出品的优秀设计插件</p><p><img src="/img/mufeng.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong><a href="https://blog.rectorsquid.com/linkage-mechanism-designer-and-simulator/" target="_blank" rel="noopener">Linkage</a></strong></p><p>Linkage是一款连杆仿真软件，可以简单地快速仿真机构运动，同时可以验证机构合理性。</p><p><img src="/img/linkage.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong><a href="http://cadcam.eng.sunysb.edu/" target="_blank" rel="noopener">Motion Generator</a></strong></p><p>类似于Linkage的一款在线连杆仿真软件，网页内有许多经典实例。</p><p><img src="/img/motion.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong>AxGlyph简图绘制</strong></p><p>简图绘制神器，机械建图，函数图，化学方程式无所不能</p><p><img src="/img/axglyph.png" srcset="/img/loading.gif" alt=""></p><hr><p><em>下期预告：有限元方向</em>   <kbd>咕咕咕</kbd></p>]]></content>
+    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
     
     
     
     <tags>
       
-      <tag>机械</tag>
+      <tag>{{ tag.name }}</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="{{ (url + post.path) | uriencode }}"/>
+    <url>{{ (url + post.path) | uriencode }}</url>
+    
+    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>{{ tag.name }}</tag>
       
     </tags>
     

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>机器人学习资料简介</title>
+      <link href="/2020/03/18/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E7%AE%80%E4%BB%8B/"/>
+      <url>/2020/03/18/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E7%AE%80%E4%BB%8B/</url>
+      <content type="html"><![CDATA[<h1 id="机器人方向资料简介"><a href="#机器人方向资料简介" class="headerlink" title="机器人方向资料简介"></a>机器人方向资料简介</h1><p><strong>机器人学</strong></p><p><strong><em>推荐教材：</em></strong></p><p>（必修，实践）机器人学、机器视觉与控制――MATLAB算法基础 [Robotics, Vision and Control: Fundamental Algorith]，[澳] Peter Corke（彼得 科克） 著，刘荣 译 ，电子工业出版社</p><p>（参考，理论）机器人学：建模、控制与视觉 ，熊有伦 等 著，华中科技大学出版社</p><p><strong><em>推荐教程：</em></strong></p><blockquote><p><a href="https://www.bilibili.com/video/av30616356/?spm_id_from=333.788.videocard.0" target="_blank" rel="noopener">(必修)东南大学 机器人原理及应用(共48讲)(Bilibili)</a> </p><p>东南大学 机器人原理及应用 百度云<br>链接: <a href="https://pan.baidu.com/s/1MJON50a2xFjsqOX-8PtRpw" target="_blank" rel="noopener">https://pan.baidu.com/s/1MJON50a2xFjsqOX-8PtRpw</a> 提取码: 9txi</p></blockquote><p><a href="http://peichunlin.me.ntu.edu.tw/index.htm" target="_blank" rel="noopener">林沛群老师个人主页</a></p><blockquote><p><a href="https://www.coursera.org/learn/robotics1/home/welcome" target="_blank" rel="noopener">(推荐)国立台湾大学机器人学1—-运动学(coursra)</a>(卡顿请尝试在无痕窗口中打开视频页面)</p><p><a href="https://www.bilibili.com/video/av54047883?from=search&amp;seid=16030258824692065611" target="_blank" rel="noopener">国立台湾大学机器人学1—-运动学(Bilibili)</a></p><p>参考课件书籍：</p><p>链接：<a href="https://pan.baidu.com/s/1E8rNy1MbR-V1I-yp4lJv-w" target="_blank" rel="noopener">https://pan.baidu.com/s/1E8rNy1MbR-V1I-yp4lJv-w</a> 提取码：ebjl</p><p><a href="https://www.bilibili.com/video/av59243185/?spm_id_from=333.788.videocard.1" target="_blank" rel="noopener">国立台湾大学机器人学—-动力学(Bilibili)</a></p></blockquote><hr><p><strong>Matlab</strong></p><p><strong><em>推荐教程：</em></strong></p><blockquote><p><a href="https://space.bilibili.com/24014925/channel/detail?cid=12575&amp;tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">Matlab入门教程</a></p><p>(参考)<a href="https://www.bilibili.com/video/av68228488?from=search&amp;seid=9131365510044676757" target="_blank" rel="noopener">Matlab教程系列-国立台湾大学</a></p></blockquote><hr>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 机器人 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Ubuntu下载源</title>
+      <link href="/2020/03/14/Ubuntu%E4%B8%8B%E8%BD%BD%E6%BA%90/"/>
+      <url>/2020/03/14/Ubuntu%E4%B8%8B%E8%BD%BD%E6%BA%90/</url>
+      <content type="html"><![CDATA[<h1 id="Ubuntu镜像下载源"><a href="#Ubuntu镜像下载源" class="headerlink" title="Ubuntu镜像下载源"></a>Ubuntu镜像下载源</h1><p>官方源（不推荐）</p><p><a href="https://www.ubuntu.com/download/" target="_blank" rel="noopener">https://www.ubuntu.com/download/</a></p><p>中科大源</p><p><a href="http://mirrors.ustc.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/ubuntu-releases/</a></p><p>阿里云</p><p><a href="http://mirrors.aliyun.com/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu-releases/</a></p><p>北理工源</p><p><a href="http://mirror.bit.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/ubuntu-releases/</a></p><p>兰大源 （暂时测试无法使用）</p><p><a href="http://mirror.lzu.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/ubuntu-releases/</a></p><p>浙大源</p><p><a href="http://mirrors.zju.edu.cn/ubuntu-releases/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/ubuntu-releases/</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>机械设计软件分享（第一期）</title>
+      <link href="/2020/03/11/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%89/"/>
+      <url>/2020/03/11/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB%EF%BC%88%E7%AC%AC%E4%B8%80%E6%9C%9F%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p><strong>AUTOCAD</strong></p><p>当下最流行的二维绘图软件，出图的不二之选。加工各类非标零件时绘制零件图、装配图。(建议统一版本)</p><p><img src="https://s2.ax1x.com/2020/03/11/8AleRf.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong>SOLIDWORKS 2018</strong></p><p>SOLIDWORKS作为一款参数化建模软件相比其他三维建模软件（Creo,<del>Fusion360</del>没用过,Inventor,catia）来说，其设计思路以及操作逻辑更符合机器人结构设计，与其他程序接口广泛使用方便且易学易上手。（社团后续会同一版本至2018白金版）</p><p><img src="/img/jixie1.png" srcset="/img/loading.gif" alt=""></p><hr><p>以下软件的使用建立在<strong>SOLIDWORKS 2018</strong>基础上</p><p><strong><a href="https://www.misumi.com.cn/pr/fa/b9c60p3c/aa/?bid=bid_catalog_top#applynow" target="_blank" rel="noopener">MISUMI零件库</a></strong></p><p>相较其他零件库，更推荐米思米零件库</p><ol><li><p>无需付费</p></li><li><p>MISUMI收录零件种类繁多</p></li><li><p>支持一键导入装配体</p></li><li><p>模型支持本地保存，自动生成BOM表</p><p><img src="/img/misumi.png" srcset="/img/loading.gif" alt=""></p></li></ol><p><strong>GearTrax</strong></p><p>一款齿轮生成软件。齿轮一键生成，避免了绘制齿轮时的繁琐步骤。推荐与SOLIDWORKS TOOLBOX搭配使用。</p><p><img src="/img/gear.png" srcset="/img/loading.gif" alt=""></p><p><strong>沐风工具箱</strong></p><p>国内机械图纸分享网站沐风网出品的优秀设计插件</p><p><img src="/img/mufeng.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong><a href="https://blog.rectorsquid.com/linkage-mechanism-designer-and-simulator/" target="_blank" rel="noopener">Linkage</a></strong></p><p>Linkage是一款连杆仿真软件，可以简单地快速仿真机构运动，同时可以验证机构合理性。</p><p><img src="/img/linkage.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong><a href="http://cadcam.eng.sunysb.edu/" target="_blank" rel="noopener">Motion Generator</a></strong></p><p>类似于Linkage的一款在线连杆仿真软件，网页内有许多经典实例。</p><p><img src="/img/motion.png" srcset="/img/loading.gif" alt=""></p><hr><p><strong>AxGlyph简图绘制</strong></p><p>简图绘制神器，机械建图，函数图，化学方程式无所不能</p><p><img src="/img/axglyph.png" srcset="/img/loading.gif" alt=""></p><hr><p><em>下期预告：有限元方向</em>   <kbd>咕咕咕</kbd></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 机械 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>机器人技术学习(第一篇)</title>
+      <link href="/2020/01/01/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
+      <url>/2020/01/01/%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E7%AF%87/</url>
+      <content type="html"><![CDATA[<h1 id="机器人技术学习笔记（一）"><a href="#机器人技术学习笔记（一）" class="headerlink" title="机器人技术学习笔记（一）"></a>机器人技术学习笔记（一）</h1><p>本菜狗<del>~课上不听，课下遭罪</del>~东南大学、台湾大学机器人学系列课程笔记。拾人牙慧，借鉴了CSDN及各技术论坛上诸位巨佬的智慧。</p><h4 id="1-1-位置描述"><a href="#1-1-位置描述" class="headerlink" title="1.1 位置描述"></a>1.1 位置描述</h4><p>在坐标系中，空间中任意一点p的位置可以用3*1向量（位置矢量）表示：</p><script type="math/tex; mode=display">{}^AP = {[{P_X} {P_Y} {P_Z}]^T}</script><h4 id="1-2-姿态描述"><a href="#1-2-姿态描述" class="headerlink" title="1.2 姿态描述"></a>1.2 姿态描述</h4><p>空间物体B的方位可以用某个固结于此物体的坐标系{B}的三个单位主矢量</p><script type="math/tex; mode=display">{[{X_B},{Y_B},{Z_B}]}</script><p>相对参考坐标系A的方向余弦组成的3*3矩阵描述。</p><script type="math/tex; mode=display">{}_B^AR = \left[ {\begin{array}{*{20}{c}}{{r_{11}}}&{{r_{12}}}&{{r_{13}}}\\{{r_{21}}}&{{r_{22}}}&{{r_{23}}}\\{{r_{31}}}&{{r_{32}}}&{{r_{33}}}\end{array}} \right]</script><p>上述矩阵称为旋转矩阵，且该矩阵是正交的，则：</p><script type="math/tex; mode=display">_B^AR^{ - 1}={_B^A}R^{T}\quad|_B^AR|=1</script><script type="math/tex; mode=display">R(x,\theta ) = \left[ {\begin{array}{*{20}{c}}1&0&0\\0&{c\theta }&{ - s\theta }\\0&{s\theta }&{c\theta }\end{array}} \right]\quad R(y,\theta) = \left[ {\begin{array}{*{20}{c}}{c\theta}&0&{s\theta}\\0&1&0\\{-s\theta}&0&{c\theta}\end{array}} \right]\quad R(z,\theta)=\left[{\begin{array}{*{20}{c}}{c\theta}&{-s\theta}&0\\{s\theta}&{c\theta}&0\\0&0&1\end{array}} \right]</script><ul><li>$_B^AR$可以表示固定于刚体的坐标系对参考坐标系的姿态矩阵</li><li>$_B^AR$可以表示为坐标变换矩阵,使得坐标系{B}的点坐标$^Bp$变换成{A}中的点坐标$^Ap$ </li><li>可作算子计算矢量的坐标系变换</li></ul><h4 id="1-3位姿描述"><a href="#1-3位姿描述" class="headerlink" title="1.3位姿描述"></a>1.3位姿描述</h4><p>{B}={  $_B^AR$    ^A^p~Bo~ }</p><hr><h4 id="1-4坐标变换"><a href="#1-4坐标变换" class="headerlink" title="1.4坐标变换"></a>1.4坐标变换</h4><blockquote><p>平移变换：<strong>^A^P=^B^P+^A^P~Bo~</strong></p><p>旋转变换：$^AP={_B^AR}*{^BP}$<br>$_B^AR={_B^AR^{-1}}={_B^AR^T}$</p><p>复合变换：$^AP={<em>B^AR}*{^BP}+{^AP</em>{Bo}}$</p><hr></blockquote><h4 id="1-5齐次坐标变换"><a href="#1-5齐次坐标变换" class="headerlink" title="1.5齐次坐标变换"></a>1.5齐次坐标变换</h4><h5 id="引申：齐次坐标"><a href="#引申：齐次坐标" class="headerlink" title="引申：齐次坐标"></a>引申：齐次坐标</h5><blockquote><p>简而言之，齐次坐标就是用N+1维来代表N维坐标<br>我们可以在一个2D笛卡尔坐标末尾加上一个额外的变量w来形成2D齐次坐标，因此，一个点(X,Y)在齐次坐标里面变成了(x,y,w)，并且有  X = x/w    Y = y/w</p><p>$\qquad(x,y,w) \quad\Leftrightarrow \quad(\frac{x}{w},\frac{y}{w})\Homogeneoues\Leftrightarrow Cartesiam$</p><p>例如，在笛卡尔坐标系下（1，2）的齐次坐标可以表示为（1，2，1），如果点（1，2）移动到无限远处，在笛卡尔坐标下它变为(∞,∞)，然而它的齐次坐标表示为（1，2，0），因为(1/0, 2/0) = (∞,∞)。</p><p>$\left{ \begin{array}{l}<br>Ax + By + C = 0\<br>Ax + By + D = 0<br>\end{array} \right.在笛卡尔坐标系里面，该方程组无解$</p><p>在透视空间里面，用齐次坐标x/w, y/w代替x ,y</p><script type="math/tex; mode=display">\left\{ \begin{array}{l}A\frac{x}{w} + B\frac{y}{w} + C = 0\\A\frac{x}{w} + B\frac{y}{w} + D = 0\end{array} \right. \Rightarrow \left\{ \begin{array}{l}Ax + By + Cw = 0\\\\Ax + By + Dw = 0\end{array} \right.有解(x,y,0)，两条直线相交于(x,y,0)，这个点在无穷远处</script><p>齐次坐标意义：<strong>齐次坐标可以表示无穷远处的点</strong></p></blockquote><p>$^AP={^A_BT}{_BP}$</p><script type="math/tex; mode=display">{}_B^AT = \left[ \begin{array}{l}{}_B^AR\\0\end{array} \right.\left. \begin{array}{l}{}^A{P_{BO}}\\1\end{array} \right]</script><script type="math/tex; mode=display">R(x,\theta ) = \left[ {\begin{array}{*{20}{c}}1&0&0&0\\0&{c\theta }&{ - s\theta }&0\\0&{s\theta }&{c\theta }&0\\0&0&0&1\end{array}} \right]\quad R(y,\theta) = \left[ {\begin{array}{*{20}{c}}{c\theta}&0&{s\theta}&0\\0&1&0&0\\{-s\theta}&0&{c\theta}&0\\0&0&0&1\end{array}} \right]\quad R(z,\theta)=\left[{\begin{array}{*{20}{c}}{c\theta}&{-s\theta}&0&0\\{s\theta}&{c\theta}&0&0\\0&0&1&0\\0&0&0&1\end{array}} \right]</script><h2 id="AB-ne-BA"><a href="#AB-ne-BA" class="headerlink" title="$ AB\ne BA $"></a>$ A<em>B\ne B</em>A $</h2><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://blog.csdn.net/zhuiqiuzhuoyue583/article/details/95228010" target="_blank" rel="noopener">https://blog.csdn.net/zhuiqiuzhuoyue583/article/details/95228010</a></p><p><a href="http://www.songho.ca/math/homogeneous/homogeneous.html" target="_blank" rel="noopener">http://www.songho.ca/math/homogeneous/homogeneous.html</a></p><p><a href="https://www.zhihu.com/question/59595799" target="_blank" rel="noopener">https://www.zhihu.com/question/59595799</a></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 机器人 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
