@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Ye Ying">
   <meta name="keywords" content="">
-  <title>机器人技术学习(第一篇) - Yeying</title>
+  <title>机器人技术学习——空间描述(第一篇) - Yeying</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -127,7 +127,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    885 字
+                    1.4k 字
                   </span>
                 
 
@@ -135,7 +135,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      4 分钟
+                      6 分钟
                   </span>
                 
 
@@ -163,22 +163,27 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="机器人技术学习笔记（一）"><a href="#机器人技术学习笔记（一）" class="headerlink" title="机器人技术学习笔记（一）"></a>机器人技术学习笔记（一）</h1><p>本菜狗<del>~课上不听，课下遭罪</del>~东南大学、台湾大学机器人学系列课程笔记。拾人牙慧，借鉴了CSDN及各技术论坛上诸位巨佬的智慧。</p>
+              <h1 id="机器人技术学习笔记（一）空间描述"><a href="#机器人技术学习笔记（一）空间描述" class="headerlink" title="机器人技术学习笔记（一）空间描述"></a>机器人技术学习笔记（一）空间描述</h1><p>本菜狗<del>~课上不听，课下遭罪</del>~东南大学、台湾大学机器人学系列课程笔记。拾人牙慧，借鉴了CSDN及各技术论坛上诸位巨佬的智慧。</p>
 <hr>
 <h4 id="1-1-位置描述"><a href="#1-1-位置描述" class="headerlink" title="1.1 位置描述"></a>1.1 位置描述</h4><p>在坐标系中，空间中任意一点p的位置可以用3*1向量（位置矢量）表示：</p>
 <script type="math/tex; mode=display">
 {}^AP = {[{P_X} {P_Y} {P_Z}]^T}</script><hr>
-<h4 id="1-2-姿态描述"><a href="#1-2-姿态描述" class="headerlink" title="1.2 姿态描述"></a>1.2 姿态描述</h4><p>空间物体B的方位可以用某个固结于此物体的坐标系{B}的三个单位主矢量</p>
+<h4 id="1-2-姿态描述"><a href="#1-2-姿态描述" class="headerlink" title="1.2 姿态描述"></a>1.2 姿态描述</h4><p><img src="D:\Program Files\Typora\SouthEast" srcset="/img/loading.gif" alt="这里写图片描述"></p>
+<p>空间物体B的方位可以用某个固结于此物体的坐标系{B}的三个单位主矢量</p>
 <script type="math/tex; mode=display">
-{[{X_B},{Y_B},{Z_B}]}</script><p>相对参考坐标系A的方向余弦组成的3*3矩阵描述。</p>
+{[\widehat {{X_B}}\quad \widehat{Y_B}\quad\widehat{Z_B}]}</script><p>相对参考坐标系A的方向余弦组成的3*3矩阵描述。</p>
 <script type="math/tex; mode=display">
 {}_B^AR = \left[ {\begin{array}{*{20}{c}}
 {{r_{11}}}&{{r_{12}}}&{{r_{13}}}\\
 {{r_{21}}}&{{r_{22}}}&{{r_{23}}}\\
 {{r_{31}}}&{{r_{32}}}&{{r_{33}}}
-\end{array}} \right]</script><p>上述矩阵称为旋转矩阵，且该矩阵是正交的，则：</p>
+\end{array}} \right]
+=
+\left[ {\begin{array}{*{20}{c}}
+\widehat {{^AX_B}}&\widehat{^AY_B}&\widehat{^AZ_B}
+\end{array}} \right]</script><p>上述矩阵称为旋转矩阵(Rotation Matrix)，且该矩阵是正交的，则：</p>
 <script type="math/tex; mode=display">
-_B^AR^{ - 1}={_B^A}R^{T}\quad|_B^AR|=1</script><script type="math/tex; mode=display">
+_B^AR={_B^AR^{ - 1}}={_B^A}R^{T}\quad|_B^AR|=1</script><script type="math/tex; mode=display">
 R(x,\theta ) = \left[ {\begin{array}{*{20}{c}}
 1&0&0\\
 0&{c\theta }&{ - s\theta }\\
@@ -194,12 +199,10 @@ R(y,\theta) = \left[ {\begin{array}{*{20}{c}}
 R(z,\theta)=\left[{\begin{array}{*{20}{c}}
 {c\theta}&{-s\theta}&0\\{s\theta}&{c\theta}&0\\0&0&1
 \end{array}} \right]</script><ul>
-<li><p>$_B^AR$可以表示固定于刚体的坐标系对参考坐标系的姿态矩阵</p>
-</li>
-<li><p>$_B^AR$可以表示为坐标变换矩阵,使得坐标系{B}的点坐标$^Bp$变换成{A}中的点坐标$^Ap$ </p>
-</li>
-<li><p>可作算子计算矢量的坐标系变换</p>
-</li>
+<li>$_B^AR$可以表示固定于刚体的坐标系对参考坐标系的姿态矩阵</li>
+<li>$_B^AR$可以表示为坐标变换矩阵,使得坐标系{B}的点坐标$^Bp$变换成{A}中的点坐标$^Ap$ </li>
+<li>可作算子计算矢量的坐标系变换</li>
+<li>旋转矩阵有9个值，只占了3个DOF。这些量之间有约束方程：每一列的平方和为1，不同列相互正交，这与旋转矩阵的转置乘以旋转矩阵本身等于单位矩阵是一样的。有6个约束，所以只有3个自由度。</li>
 </ul>
 <hr>
 <h4 id="1-3位姿描述"><a href="#1-3位姿描述" class="headerlink" title="1.3位姿描述"></a>1.3位姿描述</h4><script type="math/tex; mode=display">
@@ -210,7 +213,21 @@ R(z,\theta)=\left[{\begin{array}{*{20}{c}}
 <p>复合变换：<script type="math/tex">^AP={_B^AR}*{^BP} + {^AP_{Bo}}</script></p>
 <hr>
 </blockquote>
-<h4 id="1-5齐次坐标变换"><a href="#1-5齐次坐标变换" class="headerlink" title="1.5齐次坐标变换"></a>1.5齐次坐标变换</h4><h5 id="引申：齐次坐标"><a href="#引申：齐次坐标" class="headerlink" title="引申：齐次坐标"></a>引申：齐次坐标</h5><blockquote>
+<h4 id="1-5Rotation-Matrix"><a href="#1-5Rotation-Matrix" class="headerlink" title="1.5Rotation Matrix"></a>1.5Rotation Matrix</h4><h6 id="1-5-1Fixed-angles-相对固定frame（左乘）左←右"><a href="#1-5-1Fixed-angles-相对固定frame（左乘）左←右" class="headerlink" title="1.5.1Fixed angles 相对固定frame（左乘）左←右"></a>1.5.1Fixed angles 相对固定frame（左乘）左←右</h6><p>首先将坐标系{B}和一个已知的参考坐标系{A}重合，先将{B}绕$\widehat {{X_A}}$轴旋转$\gamma$角，再绕轴$\widehat {{Y_A}}$旋转$\beta$，最后绕$\widehat {{Z_A}}$轴旋转$\alpha$角。每次旋转都是绕着固定参考坐标系{A}的轴。</p>
+<p> 把每个旋转看做算子，等价旋转矩阵为</p>
+<script type="math/tex; mode=display">
+{}_B^A{{\rm{R}}_{XYZ}}(\gamma ,\beta ,\alpha ) = {R_Z}(\alpha ){R_Y}(\beta ){R_X}(\gamma ) = \left[ {\begin{array}{*{20}{c}}{c\alpha }&{ - s\alpha }&0\\{s\alpha }&{c\alpha }&0\\0&0&1\end{array}} \right]\left[ {\begin{array}{*{20}{c}}{c\beta }&0&{s\beta }\\0&1&0\\{ - s\beta }&0&{c\beta }\end{array}} \right]\left[ {\begin{array}{*{20}{c}}1&0&0\\0&{c\gamma }&{ - s\gamma }\\0&{s\gamma }&{c\gamma }\end{array}} \right]</script><h6 id="1-5-2Euler-Angles-相对变动的frame（右乘）左→右"><a href="#1-5-2Euler-Angles-相对变动的frame（右乘）左→右" class="headerlink" title="1.5.2Euler Angles 相对变动的frame（右乘）左→右"></a>1.5.2Euler Angles 相对变动的frame（右乘）左→右</h6><p>我们常将绕着X、Y、Z的旋转称为roll、pitch、yaw，也即俯仰、偏航、翻滚</p>
+<p>下面的X-Y-Z欧拉角，记{A}绕{A}的Z旋转得到{B’}，然后{B’}绕{B’}的Y旋转得到{B’’}，最后{B’’}绕{B’’}的X旋转得到{B}，所以，我们可以写出</p>
+<ul>
+<li>X-Y-Z Euler Angles</li>
+</ul>
+<script type="math/tex; mode=display">
+{}_B^A{R_{X'Y'Z'}}\left( {\gamma ,\beta ,\alpha } \right) = {_{B'}^AR}\ {_{B''}^{B'}R}\ {_B^{B''}R} = {R_{Z'}}(\alpha ){R_{Y'}}(\beta ){R_{X'}}(\gamma )</script><ul>
+<li>Z-Y-Z Euler Angles</li>
+</ul>
+<script type="math/tex; mode=display">
+{}_B^A{R_{Z'Y'Z'}}\left( {\gamma ,\beta ,\alpha } \right)  = {R_{Z'}}(\alpha ){R_{Y'}}(\beta ){R_{Z'}}(\gamma )</script><hr>
+<h4 id="1-6齐次坐标变换"><a href="#1-6齐次坐标变换" class="headerlink" title="1.6齐次坐标变换"></a>1.6齐次坐标变换</h4><h5 id="引申：齐次坐标"><a href="#引申：齐次坐标" class="headerlink" title="引申：齐次坐标"></a>引申：齐次坐标</h5><blockquote>
 <p>简而言之，齐次坐标就是用N+1维来代表N维坐标<br>我们可以在一个2D笛卡尔坐标末尾加上一个额外的变量w来形成2D齐次坐标，因此，一个点(X,Y)在齐次坐标里面变成了(x,y,w)，并且有  X = x/w    Y = y/w</p>
 <script type="math/tex; mode=display">
 \qquad(x,y,w) \quad\Leftrightarrow \quad(\frac{x}{w},\frac{y}{w}) \\Homogeneoues \Leftrightarrow Cartesiam</script><p>例如，在笛卡尔坐标系下（1，2）的齐次坐标可以表示为（1，2，1），如果点（1，2）移动到无限远处，在笛卡尔坐标下它变为(∞,∞)，然而它的齐次坐标表示为（1，2，0），因为(1/0, 2/0) = (∞,∞)。</p>
@@ -230,12 +247,13 @@ Ax + By + Dw = 0
 </blockquote>
 <script type="math/tex; mode=display">
 ^AP={^A_BT}{_BP}</script><script type="math/tex; mode=display">
-{}_B^AT = \left[ \begin{array}{l}
+{}_B^AT =\left[  \begin{array}{l} ^AP\\ \ 1 \end{array}\right] 
+=\left[ \begin{array}{l}
 {}_B^AR\\
-0
+0,0,0
 \end{array} \right.\left. \begin{array}{l}
-{}^A{P_{BO}}\\
-1
+{}^A{P_{BORG}}\\
+\quad 1
 \end{array} \right]</script><script type="math/tex; mode=display">
 R(x,\theta ) = \left[ {\begin{array}{*{20}{c}}
 1&0&0&0\\
@@ -253,7 +271,15 @@ R(y,\theta) = \left[ {\begin{array}{*{20}{c}}
 \quad 
 R(z,\theta)=\left[{\begin{array}{*{20}{c}}
 {c\theta}&{-s\theta}&0&0\\{s\theta}&{c\theta}&0&0\\0&0&1&0\\0&0&0&1
-\end{array}} \right]</script><script type="math/tex; mode=display">A*B \ne B*A</script><hr>
+\end{array}} \right]</script><script type="math/tex; mode=display">A*B \ne B*A</script><h4 id="1-7逆变换"><a href="#1-7逆变换" class="headerlink" title="1.7逆变换"></a>1.7逆变换</h4><script type="math/tex; mode=display">
+{}_B^AT ={_B^AT^{-1}}=\left[  \begin{array}{l} ^AP\\ \ 1 \end{array}\right] 
+=\left[ \begin{array}{l}
+{}_B^AR\\
+0,0,0
+\end{array} \right.\left. \begin{array}{l}
+{}-{_B^AR^T}^A{P_{BORG}}\\
+\qquad 1
+\end{array} \right]</script><hr>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://blog.csdn.net/zhuiqiuzhuoyue583/article/details/95228010" target="_blank" rel="noopener">https://blog.csdn.net/zhuiqiuzhuoyue583/article/details/95228010</a></p>
 <p><a href="http://www.songho.ca/math/homogeneous/homogeneous.html" target="_blank" rel="noopener">http://www.songho.ca/math/homogeneous/homogeneous.html</a></p>
 <p><a href="https://www.zhihu.com/question/59595799" target="_blank" rel="noopener">https://www.zhihu.com/question/59595799</a></p>
@@ -439,7 +465,7 @@ R(z,\theta)=\left[{\begin{array}{*{20}{c}}
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "机器人技术学习(第一篇)&nbsp;",
+        "机器人技术学习——空间描述(第一篇)&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 100,
