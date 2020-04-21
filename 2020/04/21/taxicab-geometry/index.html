@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/011.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ye Ying">
+  <meta name="keywords" content="">
+  <title>taxicab-geometry - Yeying</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Yeying</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">Me</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  Tuesday, April 21st 2020, 11:21 am
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.4k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      5 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <hr>
+<p>title:taxicab geometry<br>date:2020-04-21 00:00:00</p>
+<h2 id="tags-math"><a href="#tags-math" class="headerlink" title="tags:math"></a>tags:math</h2><h1 id="出租车几何学：一个全新的几何世界"><a href="#出租车几何学：一个全新的几何世界" class="headerlink" title="出租车几何学：一个全新的几何世界"></a>出租车几何学：一个全新的几何世界</h1><p>  从小营打车到四惠，我一定会选择走四环。虽然从北京城中间直穿过去看上去很诱人，但考虑到北京道路几乎总是正南正北的方向，不会真有人认为这样能抄近路吧。在城市中，我们估算两点之间的距离时，往往不会直接去测量两点之间的直线距离，而会去考虑它们相距多少个街区。在理想模型中，假设每条道路都是水平或者竖直的，那么只要你朝着目标走（不故意绕远路），不管你怎样走，花费的路程都是一样的。有一个非常有意思的名词——出租车几何学 (taxicab geometry) ，其名称就来源于这样的想法。</p>
+<p> <img src="\img\20201.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  在出租车几何学中，点还是形如 (x, y) 的有序实数对，直线还是满足 a x + b y + c = 0 的所有 (x, y) 组成的图形，角度大小的定义也和原来一样。只是，(x1, y1) 和 (x2, y2) 的距离重新定义为了 |x1 – x2| + |y1 – y2|（即曼哈顿距离 d(i,j)=|x1 – x2| + |y1 – y2|) ，即两点的横坐标之差加上纵坐标之差。</p>
+<p>   这是一个对“距离”的合理定义，因为它满足</p>
+<ul>
+<li>非负性：两点距离总是大于等于 0</li>
+<li>对称性： A 到 B 的距离等于 B 到 A 的距离</li>
+<li>零距离： A 到 B 的距离为 0 当且仅当 A = B</li>
+<li><p>三角形不等式：对于任意三点 A 、 B 、 C ，不等式 AB + BC ≥ AC 总成立</p>
+<p> 也就是说出租车几何学是建立在一个合理的度量空间上的。这是一个全新的几何世界。</p>
+</li>
+</ul>
+<p>   在这个世界里，很多经典几何定理仍然成立。比方说，三角形的内角和还是 180 度。因为，这是一个关于角度的定理，与距离的度量方式无关；既然角度的度量方式不变，三角形的内角和也仍然不会变。</p>
+<p> <img src="/img/20202.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  不过，一旦涉及到三角形的边长，很多基本命题就不再成立了。等边对等角是首先被否定掉的定理，底角不相等的等腰三角形满地都是。例如上图中的三角形 ABC ，虽然 AB = AC ，但三角形的两个底角显然不等。类似地，等角对等边也不成立了，例如右图中虽然角 E 和角 F 相等，但 DE = 5 ， DF = 7 。 更不可思议的是，在出租车几何中，甚至能画出等边直角三角形来！</p>
+<p> <img src="/img/20203.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  在这个几何世界中，边边边不能用来判断三角形全等了。我们可以画出两个三角形 ABC 和 A’B’C’ ，它们的对应边都相等，但这两个三角形并不能重合在一起。边角边也不能作为全等三角形的判定依据了——三角形 DEF 和 D’E’F’ 都是直角边均为 2 的直角三角形，不过它们明显不全等。</p>
+<p>  真正有趣的不是出租车几何学世界中的三角形，而是这个世界中的圆。我们仍然定义圆是所有到定点距离为定值的点组成的图形。那么在这个几何世界里，圆是什么样的？下图给出了这个几何世界中一个半径为 2 的圆，圆周上的所有点到 O 的距离均为 2 ：</p>
+<p> <img src="/img/20204.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  惊奇的不止这一点。圆的方程似乎更简单了，以原点为圆心的单位圆对应的方程是 |x| + |y| = 1 。更神奇的是，这个几何世界的圆周率值也不一样了，它精确地等于 4 ！</p>
+<p>  重新定义距离后，很多图形会变得更加复杂。定义两点间的垂直平分线为到两点距离相等的点组成的图形。在这个几何世界里，垂直平分线是什么样的？在一般情况下，垂直平分线并不是“垂直”平分线，而是一条折线段。</p>
+<p> <img src="/img/20205.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  但尽管垂直平分线如此奇怪，不过（一般情况下）三角形三边的垂直平分线仍然交于一点。这是因为，“三角形三边的垂直平分线交于一点”的证明过程只与垂直平分线的定义有关，而与垂直平分线的具体形式是无关的。即使证明过程用到了距离的定义，用到的也是新旧两种定义共有的一些基本性质。更有趣的是，这个点也是名副其实的“外心”，以它为中心可以作出这个三角形的外接圆来！也就是说，在出租车几何里，一般位置上的三个点也唯一地确定了一个圆。</p>
+<p> <img src="/img/20206.png" srcset="/img/loading.gif" alt="img"></p>
+<p>  不过，也有一些特殊的情况，三点不能确定一个圆。比方说，同时过 (0, 1) 、 (0, -1) 、 (1, 0) 的圆就有无穷多个。这是因为，(0, 1) 和 (1, 0) 的垂直平分线，以及(0, -1) 和 (1, 0) 的垂直平分线都不是“线”，有整块区域的点都满足到两端点的距离相等。因此这几条“垂直平分线”的交集不止一个点。</p>
+<p>  还有哪些欧氏几何的经典结论在出租车几何学中同样成立？出租车几何学中有什么漂亮而独特的结论？如何定义一些更加复杂的几何对象？它们在出租车几何学中又是什么样？大家不妨继续往下思考一下。</p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://github.com/fengyeying" target="_blank" rel="nofollow noopener"><b>Feng</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://fengyeying.github.io/" target="_blank" rel="nofollow noopener"> <b>Yeying</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "taxicab-geometry&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
