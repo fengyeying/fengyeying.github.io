@@ -12,6 +12,12 @@
     
     
     
+    <tags>
+      
+      <tag>{{ tag.name }}</tag>
+      
+    </tags>
+    
   </entry>
   
   
