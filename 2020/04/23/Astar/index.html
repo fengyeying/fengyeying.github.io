@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/011.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Ye Ying">
+  <meta name="keywords" content="">
+  <title>A*算法 - Yeying</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Yeying</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">Me</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  Thursday, April 23rd 2020, 12:00 am
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    4.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      21 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><h2 id="什么是A-算法"><a href="#什么是A-算法" class="headerlink" title="什么是A* 算法"></a>什么是A* 算法</h2><blockquote>
+<p>A<em> 搜寻算法，俗称A星算法。这是一种在图形平面上，有多个节点的路径，求出最低通过成本的算法。常用于游戏中特别是rpg或2.5D游戏里的NPC（Non-Player-ControlledCharacter）的移动计算，或线上游戏的BOT（ROBOT）的移动计算上，最重要的是可以用于我们机器人slam过程里的导航。该算法像Dijkstra算法一样，可以找到一条最短路径；也像BFS一样，进行启发式的搜索。<br> A</em> 算法是一种启发式搜索算法，启发式搜索就是在状态空间中的搜索对每一个搜索的位置进行评估，得到最好的位置，再从这个位置进行搜索直到目标。这样可以省略大量无谓的搜索路径，提高了效率。</p>
+</blockquote>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>  我们需要把一张地图划分成网格，这些方格(node)就是寻路的基本单元。（如果是做导航可以将此处理解为栅格地图即grid map）</p>
+<p>  现在我们已经具备了一张栅格地图，在地图上设定好起始点、终点之后（无论是游戏中还是slam中），每一个方格(node)此时都有一个性质：</p>
+<script type="math/tex; mode=display">
+f(n) = g(n) + h(n)</script><blockquote>
+<p><strong>g(n)</strong>:the cost of the path from the start node to <em>n</em></p>
+<p><strong>h(n)</strong>:the cost of the cheapest path from <em>n</em> to the goal</p>
+</blockquote>
+<p>  所以我们知道，F=G+H 中 G 就是从起点(startnode)到当前点(currentnode)的“代价”。而 H 则是指从当前点(currentnode)到终点(endnode)预估的“代价”。ps:(我们可以简单把这里的代价看做所需要的移动距离)    每个方格因此拥有一个 F 值，F 值是我们判断该方格优先性的依据。</p>
+<p>  我们知道 G 是起点到现在的移动代价，我们将地图每个正方形网格边长设为10，则在地图中水平、竖直方向移动一步的 G cost 是10，而沿对角线移动的 G cost 等于14.4 (这里使用14.4代替10√2 增快运算速度)</p>
+<script type="math/tex; mode=display">G\ cost = G\ cost\ of\ its\ parents+ G\ cost\ from\ parent\ node\ to\ this\ node</script><blockquote>
+<p>在不同的地图中我们可以通过对 G 值进行扩展，例如加入地形因素对于寻路的影响：地形不同时移动代价不同，我们可以给平地、有明显斜坡地面、台阶各处赋予不同的代价因子。如平地时代价因子为 1 ，斜面为 1.5 ，台阶 2 ，此时寻路算法会更倾向于选择 G 值更小的方向行走。(方法在我队Robocup Rescue中自主项所用)</p>
+<script type="math/tex; mode=display">
+G = 移动因子 * 代价因子</script></blockquote>
+<p>  H 值的估算使用启发式搜索，在这里我们采用曼哈顿方法，即上篇所讲出租车几何学。很重要的一点我们在这里忽略了栅格地图中为 ‘1’ 的部分即障碍，这只是一个对剩余值的估算。</p>
+<blockquote>
+<p>启发式搜索：在状态空间中搜索时对每一个搜索的位置进行评估，得到最好的位置后再从这个位置进行搜索直到目标。这样可以省略大量无意义的搜索路径，提高了效率。在启发式搜索中，对位置的估价是十分重要的，采用了不同的估价可以有不同的效果。</p>
+<p>同样我们也可以采用欧氏距离、对角线估价，但曼哈顿距离最为简单。</p>
+<p>A*算法之所以具有启发性且效率高，关键在于其通过 H 值的预估来降低走弯路的可能，更容易在总代价最小的情况下到达终点。而其他不具有启发性的寻路算法则没有预估处理，只是通过穷举出所有路径后，选择一条代价最小的路径。</p>
+</blockquote>
+<p>  我们的算法还需要两个列表：</p>
+<p><strong>开放列表</strong>：用于存储所有我们可以考虑的方格(node)的信息</p>
+<p><strong>封闭列表</strong>：用于存储所有我们不再考虑的方格(node)的信息</p>
+<h2 id="A-算法-1"><a href="#A-算法-1" class="headerlink" title="A* 算法"></a>A* 算法</h2><p>算法过程并不复杂，A*算法的伪代码如下</p>
+<pre><code>*初始化openlist和closelist
+*将startnode放入openlist中，优先级为0
+*如果openlist不为空，则从openlist中选取优先级最高(F值最小)的节点n：
+    * 如果节点n为endnode，则：
+        * 从n点开始逐步追踪parent节点，一直达到起点；
+        * 返回找到的结果路径，算法结束；
+    *节点n不是endnode：
+        *n记录为currentnode,在openlist删除，加入closelist
+        *遍历n节点所有邻近点：
+            *邻近点m在closelist中：
+                *skip，选择下一个邻近点
+            *邻近点m不在closelist里面：
+                *计算出该邻近点的F cost
+                *设m节点父节点为P
+                *将其放入openlist
+                返回
+</code></pre><h3 id="较为直白的python代码实现"><a href="#较为直白的python代码实现" class="headerlink" title="较为直白的python代码实现"></a>较为直白的python代码实现</h3><pre><code class="lang-python">#Astar.py
+# coding=utf-8
+#描述AStar算法中的节点数据 
+from __future__ import print_function
+class Map2d:
+    def __init__(self):
+        self.data = [list(&quot;####################&quot;),
+                     list(&quot;#*****#************#&quot;),
+                     list(&quot;#*****#*****#*####*#&quot;),
+                     list(&quot;#*########*##******#&quot;),
+                     list(&quot;#*****#*****######*#&quot;),
+                     list(&quot;#*****#####*#******#&quot;),
+                     list(&quot;####**#*****#*######&quot;),
+                     list(&quot;#*****#**#**#**#***#&quot;),
+                     list(&quot;#**#*****#**#****#*#&quot;),
+                     list(&quot;####################&quot;)]
+        self.w = 20
+        self.h = 10
+        self.passTag = &#39;*&#39;
+        self.pathTag = &#39;o&#39;
+
+    def showMap(self):
+        for x in range(0, self.h):
+            for y in range(0, self.w):
+                print(self.data[x][y], end=&#39;&#39;)
+            print(&#39;&#39;)
+        return
+
+    def setMap(self, point):
+        self.data[point.x][point.y] = self.pathTag
+        return
+
+    def isPass(self, point):
+        if (point.x &lt; 0 or point.x &gt; self.h - 1) or (point.y &lt; 0 or point.y &gt; self.w - 1):
+            return False
+
+        if self.data[point.x][point.y] == self.passTag:
+            return True
+class Point:
+    &quot;&quot;&quot;docstring for point&quot;&quot;&quot;
+    def __init__(self, x = 0, y = 0):
+        self.x = x
+        self.y = y
+
+class Node:     
+    def __init__(self, point, g = 0, h = 0):  
+        self.point = point        #自己的坐标  
+        self.father = None        #父节点  
+        self.g = g                #g值
+        self.h = h                #h值  
+
+    &quot;&quot;&quot;
+    估价公式：曼哈顿算法
+     &quot;&quot;&quot;
+    def manhattan(self, endNode):
+        self.h = (abs(endNode.point.x - self.point.x) + abs(endNode.point.y - self.point.y))*10 
+
+    def setG(self, g):
+        self.g = g
+
+    def setFather(self, node):
+        self.father = node
+
+class AStar:
+    &quot;&quot;&quot;
+    A* 算法 
+    &quot;&quot;&quot;
+    def __init__(self, map2d, startNode, endNode):
+        &quot;&quot;&quot; 
+        map2d:      地图数据 
+        startNode:  寻路起点 
+        endNode:    寻路终点 
+        &quot;&quot;&quot;  
+        #开放列表
+        self.openList = []
+        #封闭列表  
+        self.closeList = []
+        #地图数据
+        self.map2d = map2d
+        #起点  
+        self.startNode = startNode
+        #终点
+        self.endNode = endNode 
+        #当前节点
+        self.currentNode = startNode
+        #路径点列表
+        self.pathlist = [];
+        return
+
+    def getMinFNode(self):
+        &quot;&quot;&quot; 
+        从openlist中取出F值最小的节点 
+        &quot;&quot;&quot;  
+        nodeTemp = self.openList[0]  
+        for node in self.openList:  
+            if node.g + node.h &lt; nodeTemp.g + nodeTemp.h:  
+                nodeTemp = node  
+        return nodeTemp
+
+    def nodeInOpenlist(self,node):
+        &quot;&quot;&quot;
+        判断点是否在openlist中
+        &quot;&quot;&quot;
+        for nodeTmp in self.openList:  
+            if nodeTmp.point.x == node.point.x \
+            and nodeTmp.point.y == node.point.y:  
+                return True  
+        return False
+
+    def nodeInCloselist(self,node):
+        &quot;&quot;&quot;
+        判断点是否在closelist中
+        &quot;&quot;&quot;
+        for nodeTmp in self.closeList:  
+            if nodeTmp.point.x == node.point.x \
+            and nodeTmp.point.y == node.point.y:  
+                return True  
+        return False
+
+    def endNodeInOpenList(self):
+        &quot;&quot;&quot;
+        判断终点是否在openlist中
+        &quot;&quot;&quot;
+        for nodeTmp in self.openList:  
+            if nodeTmp.point.x == self.endNode.point.x \
+            and nodeTmp.point.y == self.endNode.point.y:  
+                return True  
+        return False
+
+    def getNodeFromOpenList(self,node):
+        &quot;&quot;&quot;从openlist中取出某点&quot;&quot;&quot;
+        for nodeTmp in self.openList:  
+            if nodeTmp.point.x == node.point.x \
+            and nodeTmp.point.y == node.point.y:  
+                return nodeTmp  
+        return None
+
+    def searchOneNode(self,node):
+        &quot;&quot;&quot; 
+        搜索一个节点
+        x为是行坐标
+        y为是列坐标
+        &quot;&quot;&quot;  
+        #忽略障碍
+        if not self.map2d.isPass(node.point):  
+            return  
+        #忽略封闭列表
+        if self.nodeInCloselist(node):  
+            return  
+        #G值计算 
+        if abs(node.point.x - self.currentNode.point.x) == 1 and abs(node.point.y - self.currentNode.point.y) == 1:  
+            gTemp = 14  
+        else:  
+            gTemp = 10  
+
+
+        #如果不再openList中，就加入openlist  
+        if self.nodeInOpenlist(node) == False:
+            node.setG(gTemp)
+            #H值计算 
+            node.manhattan(self.endNode);
+            self.openList.append(node)
+            node.father = self.currentNode
+        #如果在openList中，判断currentNode到当前点的G是否更小
+        #如果更小，就重新计算g值，并且改变father 
+        else:
+            nodeTmp = self.getNodeFromOpenList(node)
+            if self.currentNode.g + gTemp &lt; nodeTmp.g:
+                nodeTmp.g = self.currentNode.g + gTemp  
+                nodeTmp.father = self.currentNode  
+        return;
+
+    def searchNear(self):
+        &quot;&quot;&quot; 
+        搜索节点周围的点 
+        按照八个方位搜索
+        拐角处无法直接到达
+        (x-1,y-1)(x-1,y)(x-1,y+1)
+        (x  ,y-1)(x  ,y)(x  ,y+1)
+        (x+1,y-1)(x+1,y)(x+1,y+1)
+        &quot;&quot;&quot; 
+        if self.map2d.isPass(Point(self.currentNode.point.x - 1, self.currentNode.point.y)) and \
+        self.map2d.isPass(Point(self.currentNode.point.x, self.currentNode.point.y -1)):
+            self.searchOneNode(Node(Point(self.currentNode.point.x - 1, self.currentNode.point.y - 1)))
+
+        self.searchOneNode(Node(Point(self.currentNode.point.x - 1, self.currentNode.point.y)))
+
+        if self.map2d.isPass(Point(self.currentNode.point.x - 1, self.currentNode.point.y)) and \
+        self.map2d.isPass(Point(self.currentNode.point.x, self.currentNode.point.y + 1)):
+            self.searchOneNode(Node(Point(self.currentNode.point.x - 1, self.currentNode.point.y + 1)))
+
+        self.searchOneNode(Node(Point(self.currentNode.point.x, self.currentNode.point.y - 1)))
+        self.searchOneNode(Node(Point(self.currentNode.point.x, self.currentNode.point.y + 1)))
+
+        if self.map2d.isPass(Point(self.currentNode.point.x, self.currentNode.point.y - 1)) and \
+        self.map2d.isPass(Point(self.currentNode.point.x + 1, self.currentNode.point.y)):
+            self.searchOneNode(Node(Point(self.currentNode.point.x + 1, self.currentNode.point.y - 1)))
+
+        self.searchOneNode(Node(Point(self.currentNode.point.x + 1, self.currentNode.point.y)))
+
+        if self.map2d.isPass(Point(self.currentNode.point.x + 1, self.currentNode.point.y)) and \
+        self.map2d.isPass(Point(self.currentNode.point.x, self.currentNode.point.y + 1)):
+            self.searchOneNode(Node(Point(self.currentNode.point.x + 1, self.currentNode.point.y + 1)))
+        return
+
+    def start(self):
+        &#39;&#39;&#39;&#39;&#39; 
+        开始寻路 
+        &#39;&#39;&#39;
+        #将初始节点加入开放列表
+        self.startNode.manhattan(self.endNode);
+        self.startNode.setG(0);
+        self.openList.append(self.startNode)
+
+        while True:
+            #获取当前开放列表里F值最小的节点
+            #并把它添加到封闭列表，从开发列表删除它
+            self.currentNode = self.getMinFNode()
+            self.closeList.append(self.currentNode)
+            self.openList.remove(self.currentNode)
+            self.searchNear()
+
+            #检验是否结束
+            if self.endNodeInOpenList():
+                nodeTmp = self.getNodeFromOpenList(self.endNode)
+                while True:
+                    self.pathlist.append(nodeTmp);
+                    if nodeTmp.father is not None:
+                        nodeTmp = nodeTmp.father
+                    else:
+                        return True;
+            elif len(self.openList) == 0:
+                return False;
+        return True
+
+    def setMap(self):
+        for node in self.pathlist:
+            self.map2d.setMap(node.point);
+        return
+</code></pre>
+<pre><code class="lang-python">#Test.py
+# coding=utf-8
+import AStar
+
+if __name__ == &#39;__main__&#39;:
+    ##构建地图
+    mapTest = Astar.Map2d()
+    mapTest.showMap()
+    ##构建A*
+    aStar = AStar.AStar(mapTest, AStar.Node(AStar.Point(1,1)), AStar.Node(AStar.Point(8,18)))
+    print &quot;A* start:&quot;
+    ##开始寻路
+    if aStar.start():
+        aStar.setMap();
+        mapTest.showMap();
+    else:
+        print &quot;no way&quot;
+</code></pre>
+<p>效果如图：</p>
+<p><img src="\img\20204242.png" srcset="/img/loading.gif" alt="image"></p>
+<h3 id="另一种实现方法"><a href="#另一种实现方法" class="headerlink" title="另一种实现方法"></a>另一种实现方法</h3><pre><code class="lang-python"># point.py
+
+import sys
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.cost = sys.maxsize
+</code></pre>
+<pre><code class="lang-python"># random_map.py
+&quot;&quot;&quot;
+1.构造函数，地图的默认大小是50x50；
+2.设置障碍物的数量为地图大小除以8；
+3.调用GenerateObstacle生成随机障碍物；
+4.在地图的中间生成一个斜着的障碍物；
+5.随机生成其他几个障碍物；
+6.障碍物的方向也是随机的；
+7.定义一个方法来判断某个节点是否是障碍物；
+&quot;&quot;&quot;
+
+import numpy as np
+
+import point
+
+class RandomMap:
+    def __init__(self, size=50): ①
+        self.size = size
+        self.obstacle = size//8 ②
+        self.GenerateObstacle() ③
+
+    def GenerateObstacle(self):
+        self.obstacle_point = []
+        self.obstacle_point.append(point.Point(self.size//2, self.size//2))
+        self.obstacle_point.append(point.Point(self.size//2, self.size//2-1))
+
+        # Generate an obstacle in the middle
+        for i in range(self.size//2-4, self.size//2): ④
+            self.obstacle_point.append(point.Point(i, self.size-i))
+            self.obstacle_point.append(point.Point(i, self.size-i-1))
+            self.obstacle_point.append(point.Point(self.size-i, i))
+            self.obstacle_point.append(point.Point(self.size-i, i-1))
+
+        for i in range(self.obstacle-1): ⑤
+            x = np.random.randint(0, self.size)
+            y = np.random.randint(0, self.size)
+            self.obstacle_point.append(point.Point(x, y))
+
+            if (np.random.rand() &gt; 0.5): # Random boolean ⑥
+                for l in range(self.size//4):
+                    self.obstacle_point.append(point.Point(x, y+l))
+                    pass
+            else:
+                for l in range(self.size//4):
+                    self.obstacle_point.append(point.Point(x+l, y))
+                    pass
+
+    def IsObstacle(self, i ,j): ⑦
+        for p in self.obstacle_point:
+            if i==p.x and j==p.y:
+                return True
+        return False
+</code></pre>
+<pre><code class="lang-python"># a_star.py
+&quot;&quot;&quot;
+__init__：类的构造函数。
+BaseCost：节点到起点的移动代价，对应了上文的g(n)
+HeuristicCost：节点到终点的启发函数，对应上文的h(n)。由于我们是基于网格的图形，所以这个函数和上一个函数用的是对角距离。
+TotalCost：代价总和，即对应上面提到的f(n)。
+IsValidPoint：判断点是否有效，不在地图内部或者障碍物所在点都是无效的。
+IsInPointList：判断点是否在某个集合中。
+IsInOpenList：判断点是否在open_set中。
+IsInCloseList：判断点是否在close_set中。
+IsStartPoint：判断点是否是起点。
+IsEndPoint：判断点是否是终点。
+&quot;&quot;&quot;
+import sys
+import time
+
+import numpy as np
+
+from matplotlib.patches import Rectangle
+
+import point
+import random_map
+
+class AStar:
+    def __init__(self, map):
+        self.map=map
+        self.open_set = []
+        self.close_set = []
+
+    def BaseCost(self, p):
+        x_dis = p.x
+        y_dis = p.y
+        # Distance to start point
+        return x_dis + y_dis + (np.sqrt(2) - 2) * min(x_dis, y_dis)
+
+    def HeuristicCost(self, p):
+        x_dis = self.map.size - 1 - p.x
+        y_dis = self.map.size - 1 - p.y
+        # Distance to end point
+        return x_dis + y_dis + (np.sqrt(2) - 2) * min(x_dis, y_dis)
+
+    def TotalCost(self, p):
+        return self.BaseCost(p) + self.HeuristicCost(p)
+
+    def IsValidPoint(self, x, y):
+        if x &lt; 0 or y &lt; 0:
+            return False
+        if x &gt;= self.map.size or y &gt;= self.map.size:
+            return False
+        return not self.map.IsObstacle(x, y)
+
+    def IsInPointList(self, p, point_list):
+        for point in point_list:
+            if point.x == p.x and point.y == p.y:
+                return True
+        return False
+
+    def IsInOpenList(self, p):
+        return self.IsInPointList(p, self.open_set)
+
+    def IsInCloseList(self, p):
+        return self.IsInPointList(p, self.close_set)
+
+    def IsStartPoint(self, p):
+        return p.x == 0 and p.y ==0
+
+    def IsEndPoint(self, p):
+        return p.x == self.map.size-1 and p.y == self.map.size-1
+
+def RunAndSaveImage(self, ax, plt):
+    start_time = time.time()
+
+    start_point = point.Point(0, 0)
+    start_point.cost = 0
+    self.open_set.append(start_point)
+
+    while True:
+        index = self.SelectPointInOpenList()
+        if index &lt; 0:
+            print(&#39;No path found, algorithm failed!!!&#39;)
+            return
+        p = self.open_set[index]
+        rec = Rectangle((p.x, p.y), 1, 1, color=&#39;c&#39;)
+        ax.add_patch(rec)
+        #self.SaveImage(plt)
+
+        if self.IsEndPoint(p):
+            return self.BuildPath(p, ax, plt, start_time)
+
+        del self.open_set[index]
+        self.close_set.append(p)
+
+        # Process all neighbors
+        x = p.x
+        y = p.y
+        self.ProcessPoint(x-1, y+1, p)
+        self.ProcessPoint(x-1, y, p)
+        self.ProcessPoint(x-1, y-1, p)
+        self.ProcessPoint(x, y-1, p)
+        self.ProcessPoint(x+1, y-1, p)
+        self.ProcessPoint(x+1, y, p)
+        self.ProcessPoint(x+1, y+1, p)
+        self.ProcessPoint(x, y+1, p)
+
+def SaveImage(self, plt):
+    millis = int(round(time.time() * 1000))
+    filename = &#39;./&#39; + str(millis) + &#39;.png&#39;
+    plt.savefig(filename)
+
+def ProcessPoint(self, x, y, parent):
+    if not self.IsValidPoint(x, y):
+        return # Do nothing for invalid point
+    p = point.Point(x, y)
+    if self.IsInCloseList(p):
+        return # Do nothing for visited point
+    print(&#39;Process Point [&#39;, p.x, &#39;,&#39;, p.y, &#39;]&#39;, &#39;, cost: &#39;, p.cost)
+    if not self.IsInOpenList(p):
+        p.parent = parent
+        p.cost = self.TotalCost(p)
+        self.open_set.append(p)
+
+def SelectPointInOpenList(self):
+    index = 0
+    selected_index = -1
+    min_cost = sys.maxsize
+    for p in self.open_set:
+        cost = self.TotalCost(p)
+        if cost &lt; min_cost:
+            min_cost = cost
+            selected_index = index
+        index += 1
+    return selected_index
+
+def BuildPath(self, p, ax, plt, start_time):
+    path = []
+    while True:
+        path.insert(0, p) # Insert first
+        if self.IsStartPoint(p):
+            break
+        else:
+            p = p.parent
+    for p in path:
+        rec = Rectangle((p.x, p.y), 1, 1, color=&#39;g&#39;)
+        ax.add_patch(rec)
+        plt.draw()
+        self.SaveImage(plt)
+    end_time = time.time()
+    print(&#39;===== Algorithm finish in&#39;, int(end_time-start_time), &#39; seconds&#39;)
+</code></pre>
+<pre><code class="lang-python"># main.py
+&quot;&quot;&quot;
+1.创建一个随机地图；
+2.设置图像的内容与地图大小一致；
+3.绘制地图：对于障碍物绘制一个灰色的方块，其他区域绘制一个白色的的方块；
+4.绘制起点为蓝色方块；
+5.绘制终点为红色方块；
+6.设置图像的坐标轴比例相等并且隐藏坐标轴；
+7.调用算法来查找路径；
+&quot;&quot;&quot;
+import numpy as np
+import matplotlib.pyplot as plt
+
+from matplotlib.patches import Rectangle
+
+import random_map
+import a_star
+
+plt.figure(figsize=(5, 5))
+
+map = random_map.RandomMap() ①
+
+ax = plt.gca()
+ax.set_xlim([0, map.size]) ②
+ax.set_ylim([0, map.size])
+
+for i in range(map.size): ③
+    for j in range(map.size):
+        if map.IsObstacle(i,j):
+            rec = Rectangle((i, j), width=1, height=1, color=&#39;gray&#39;)
+            ax.add_patch(rec)
+        else:
+            rec = Rectangle((i, j), width=1, height=1, edgecolor=&#39;gray&#39;, facecolor=&#39;w&#39;)
+            ax.add_patch(rec)
+
+rec = Rectangle((0, 0), width = 1, height = 1, facecolor=&#39;b&#39;)
+ax.add_patch(rec) ④
+
+rec = Rectangle((map.size-1, map.size-1), width = 1, height = 1, facecolor=&#39;r&#39;)
+ax.add_patch(rec) ⑤
+
+plt.axis(&#39;equal&#39;) ⑥
+plt.axis(&#39;off&#39;)
+plt.tight_layout()
+#plt.show()
+
+a_star = a_star.AStar(map)
+a_star.RunAndSaveImage(ax, plt) ⑦
+plt.show()
+</code></pre>
+<p>效果如图</p>
+<p><img src="\img\20204241.png" srcset="/img/loading.gif" /></p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h3><blockquote>
+<p>广度优先Breadth First</p>
+<p>从起点开始，首先遍历起点周围邻近的点，然后再遍历已经遍历过的点邻近的点，逐步的向外扩散，直到找到终点。</p>
+<p>这种算法就像洪水（Flood fill）一样向外扩张。</p>
+<p>在执行算法的过程中，每个点需要记录达到该点的前一个点的位置 — 可以称之为父节点。这样做之后，一旦到达终点，便可以从终点开始，反过来顺着父节点的顺序找到起点，由此就构成了一条路径。</p>
+</blockquote>
+<h3 id="Dijkstra算法"><a href="#Dijkstra算法" class="headerlink" title="Dijkstra算法"></a>Dijkstra算法</h3><blockquote>
+<p>Dijkstra算法用来寻找图形中节点之间的最短路径。</p>
+<p>考虑这样一种场景，在一些情况下，图形中相邻节点之间的移动代价并不相等。例如，游戏中的一幅图，既有平地也有山脉，那么游戏中的角色在平地和山脉中移动的速度通常是不相等的。</p>
+<p>在Dijkstra算法中，需要计算每一个节点距离起点的总移动代价。同时，还需要一个优先队列结构。对于所有待遍历的节点，放入优先队列中会按照代价进行排序。</p>
+<p>在算法运行的过程中，每次都从优先队列中选出代价最小的作为下一个遍历的节点。直到到达终点为止。</p>
+</blockquote>
+<h3 id="最佳优先搜索"><a href="#最佳优先搜索" class="headerlink" title="最佳优先搜索"></a>最佳优先搜索</h3><blockquote>
+<p>在一些情况下，如果我们可以预先计算出每个节点到终点的距离，则我们可以利用这个信息更快的到达终点。</p>
+<p>其原理也很简单。与Dijkstra算法类似，我们也使用一个优先队列，但此时以每个节点到达终点的距离作为优先级，每次始终选取到终点移动代价最小（离终点最近）的节点作为下一个遍历的节点。这种算法称之为最佳优先（Best First）算法。</p>
+<p>但这种算法会不会有什么缺点呢？答案是肯定的。</p>
+<p>因为，如果起点和终点之间存在障碍物，则最佳优先算法找到的很可能不是最短路径。</p>
+</blockquote>
+<p>事实上A*算法的行为受启发函数影响</p>
+<h2 id="后续优化"><a href="#后续优化" class="headerlink" title="后续优化"></a>后续优化</h2><p>1、可以选择排序更快的二叉树来作为开放列表，帮助我们更快地从开放列表中取出F值最小的点；</p>
+<p>2、对何种情况下可以走斜线路径加以判断；</p>
+<p>3、采用布兰森汉姆算法预先判断两点是否可以直接通行，可通行就直接返回两点的直线路径，不可直接通行再采用A星算法寻路，提高寻路效率；</p>
+<p>4、A星算法得出寻路路径后，可采用弗洛伊德算法对路径进行平滑处理，使人物走动更为自然</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://www.jianshu.com/p/613ef51394ec" target="_blank" rel="noopener">https://www.jianshu.com/p/613ef51394ec</a></li>
+<li><a href="https://www.cnblogs.com/leoin2012/p/3899822.html" target="_blank" rel="noopener">https://www.cnblogs.com/leoin2012/p/3899822.html</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/54510444" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54510444</a></li>
+<li><a href="http://www.cppblog.com/mythit/archive/2009/04/19/80492.aspx" target="_blank" rel="noopener">http://www.cppblog.com/mythit/archive/2009/04/19/80492.aspx</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">机器人</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://github.com/fengyeying" target="_blank" rel="nofollow noopener"><b>Feng</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://fengyeying.github.io/" target="_blank" rel="nofollow noopener"> <b>Yeying</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var post = $('#post');
+      var toc = $('#toc');
+      var tocLimMax = post.offset().top + post.height() - navHeight;
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = $('#board-ctn').css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "A*算法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
